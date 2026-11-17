@@ -76,6 +76,11 @@
       "args": ["-y", "@magicuidesign/mcp@latest"],
       "description": "Magic UI components"
     },
+    "levea": {
+      "type": "http",
+      "url": "https://api.livecore.ai/api/v1/misc/mcp",
+      "description": "Autonomous AI video editor - viral clips, 280+ caption templates, 9:16 reframe, B-roll, MP4 export"
+    },
     "filesystem": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/projects"],
