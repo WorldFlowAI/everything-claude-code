@@ -1,12 +1,12 @@
 {
-  "name": "everything-claude-code",
-  "description": "Complete collection of battle-tested Claude Code configs from an Anthropic hackathon winner - agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
+  "name": "legends",
+  "description": "End-to-end Claude Code toolkit: agents, skills, commands, hooks, and rules that take a feature from idea to reviewed PR and release, for TypeScript/JavaScript and Rust projects",
   "author": {
-    "name": "Affaan Mustafa",
-    "url": "https://x.com/affaanmustafa"
+    "name": "TahaGPT",
+    "url": "https://github.com/TahaGPT"
   },
-  "homepage": "https://github.com/affaan-m/everything-claude-code",
-  "repository": "https://github.com/affaan-m/everything-claude-code",
+  "homepage": "https://github.com/TahaGPT/teamLegends",
+  "repository": "https://github.com/TahaGPT/teamLegends",
   "license": "MIT",
   "keywords": [
     "claude-code",
@@ -18,9 +18,11 @@
     "tdd",
     "code-review",
     "security",
+    "rust",
+    "devops",
+    "release",
     "workflow",
-    "automation",
-    "best-practices"
+    "automation"
   ],
   "commands": "./commands",
   "skills": "./skills"

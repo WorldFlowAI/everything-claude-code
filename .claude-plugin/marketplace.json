@@ -1,43 +1,55 @@
 {
-  "name": "everything-claude-code",
+  "name": "legends",
   "owner": {
-    "name": "Affaan Mustafa",
-    "email": "affaan@example.com"
+    "name": "TahaGPT",
+    "url": "https://github.com/TahaGPT"
   },
   "metadata": {
-    "description": "Battle-tested Claude Code configurations from an Anthropic hackathon winner"
+    "description": "LEGENDS: end-to-end Claude Code agents, skills, and commands"
   },
   "plugins": [
     {
-      "name": "everything-claude-code",
+      "name": "legends",
       "source": "./",
-      "description": "Complete collection of agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
+      "description": "End-to-end Claude Code toolkit: agents, skills, commands, hooks, and rules that take a feature from idea to reviewed PR and release, for TypeScript/JavaScript and Rust projects",
       "author": {
-        "name": "Affaan Mustafa"
+        "name": "TahaGPT"
       },
-      "homepage": "https://github.com/affaan-m/everything-claude-code",
-      "repository": "https://github.com/affaan-m/everything-claude-code",
+      "homepage": "https://github.com/TahaGPT/teamLegends",
+      "repository": "https://github.com/TahaGPT/teamLegends",
       "license": "MIT",
       "keywords": [
+        "claude-code",
         "agents",
         "skills",
         "hooks",
         "commands",
+        "rules",
         "tdd",
         "code-review",
         "security",
-        "best-practices"
+        "rust",
+        "devops",
+        "release",
+        "workflow",
+        "automation"
       ],
       "category": "workflow",
       "tags": [
+        "claude-code",
         "agents",
         "skills",
         "hooks",
         "commands",
+        "rules",
         "tdd",
         "code-review",
         "security",
-        "best-practices"
+        "rust",
+        "devops",
+        "release",
+        "workflow",
+        "automation"
       ]
     }
   ]
