@@ -6,15 +6,21 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 
 | Type | Items |
 |------|-------|
-| **Agents** | architect, build-error-resolver, rust-build-resolver, explorer, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
-| **Commands** | /build-fix, /checkpoint, /code-review, /learn, /plan, /refactor-clean, /tdd, /verify |
+| **Agents** | architect, build-error-resolver, rust-build-resolver, explorer, implementer, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
+| **Commands** | /ship, /build-fix, /checkpoint, /code-review, /learn, /plan, /refactor-clean, /tdd, /verify |
 | **Skills** | rust-patterns, backend-patterns, coding-standards, continuous-learning, eval-harness, security-review, verification-loop |
 | **Rules** | coding-style, git-workflow, security, testing |
 | **Hooks** | memory-persistence, strategic-compact, continuous-learning (Stop hook: `evaluate-session.js`) |
 
 ## Quick Start Workflows
 
-### Starting a New Feature
+### Shipping a Feature End to End
+
+```
+/ship "<feature description>"   # spec → explore → plan (you approve) → implement → review → verify → PR (you approve)
+```
+
+### Starting a New Feature (step by step)
 
 ```
 1. /plan              # Plan the implementation approach

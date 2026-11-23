@@ -14,6 +14,8 @@ Full feature implementation workflow:
 planner -> tdd-guide -> code-reviewer -> security-reviewer
 ```
 
+For large multi-step features, prefer `/ship`, which adds a spec, the `explorer` and `implementer` agents, approval gates, parallel review with a fix loop, and verification.
+
 ### bugfix
 Bug investigation and fix workflow:
 ```

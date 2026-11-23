@@ -25,5 +25,8 @@ node_modules/
 personal/
 private/
 
+# /ship run state
+.claude/ship/
+
 # Session templates (not committed)
 examples/sessions/*.tmp

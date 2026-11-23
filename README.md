@@ -101,6 +101,7 @@ everything-claude-code/
 |   |-- rust-build-resolver.md
 |   |-- explorer.md
 |   |-- e2e-runner.md        # Playwright E2E testing
+|   |-- implementer.md       # Executes approved plans test-first
 |   |-- refactor-cleaner.md  # Dead code cleanup
 |   |-- doc-updater.md       # Documentation sync
 |
@@ -122,6 +123,7 @@ everything-claude-code/
 |   |-- e2e.md              # /e2e - E2E test generation
 |   |-- code-review.md      # /code-review - Quality review
 |   |-- build-fix.md        # /build-fix - Fix build errors
+|   |-- ship.md             # /ship - Idea to reviewed PR, end to end
 |   |-- refactor-clean.md   # /refactor-clean - Dead code removal
 |   |-- learn.md            # /learn - Extract patterns mid-session (Longform Guide)
 |   |-- checkpoint.md       # /checkpoint - Save verification state (Longform Guide)

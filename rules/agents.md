@@ -11,7 +11,10 @@ Located in `~/.claude/agents/`:
 | tdd-guide | Test-driven development | New features, bug fixes |
 | code-reviewer | Code review | After writing code |
 | security-reviewer | Security analysis | Before commits |
-| build-error-resolver | Fix build errors | When build fails |
+| build-error-resolver | Fix TS/JS build errors | When build fails |
+| rust-build-resolver | Fix cargo build/clippy/test failures | When a Rust build fails |
+| explorer | Read-only codebase investigation | Before planning, start of bug fixes |
+| implementer | Execute an approved plan test-first | After plan approval (/ship, /orchestrate feature) |
 | e2e-runner | E2E testing | Critical user flows |
 | refactor-cleaner | Dead code cleanup | Code maintenance |
 | doc-updater | Documentation | Updating docs |
@@ -23,6 +26,7 @@ No user prompt needed:
 2. Code just written/modified - Use **code-reviewer** agent
 3. Bug fix or new feature - Use **tdd-guide** agent
 4. Architectural decision - Use **architect** agent
+5. Feature from idea to PR - Use **/ship** (spec → explorer → planner → implementer → reviewers → verify)
 
 ## Parallel Task Execution
 
