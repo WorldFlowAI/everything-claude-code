@@ -251,6 +251,70 @@ Copy desired MCP servers from `mcp-configs/mcp-servers.json` to your `~/.claude.
 
 ---
 
+## Workflows
+
+### Ship a feature end to end
+
+```
+/ship "<feature description>"
+```
+spec → explore → design (architect / database-architect / api-designer, as needed) → plan (**you approve**) → implement test-first → code + security review → fix loop → E2E → verify → docs + CI/infra → commit → PR (**you approve**)
+
+### Cut a release
+
+```
+/release --dry-run   # preview version + changelog, change nothing
+/release             # bump, changelog, verify, tag locally; you approve push/publish
+```
+
+### Step by step
+
+```
+/plan          # plan the implementation, wait for approval
+/tdd           # tests first, then code
+/verify        # build, types, lint, tests, security scan
+/code-review   # self-review before the PR
+/checkpoint    # save progress state
+```
+
+### Other commands
+
+```
+/build-fix       # fix build errors (TS/JS, or cargo via rust-build-resolver)
+/refactor-clean  # find and remove dead code safely
+/e2e             # generate and run Playwright journeys
+/orchestrate     # run a custom sequence of agents
+/learn           # extract reusable patterns from the session
+```
+
+### Which agent for which job
+
+| Situation | Agent / Command |
+|-----------|-----------------|
+| Feature from idea to PR | `/ship` |
+| Understanding unfamiliar code, starting a bug fix | `explorer` |
+| Planning a feature | `/plan` → `planner` |
+| System design decisions | `architect` |
+| Schema changes, migrations, slow queries | `database-architect` |
+| New or changed endpoints, RPCs, events, public interfaces | `api-designer` |
+| Implementing an approved plan | `implementer` |
+| Writing tests first | `/tdd` → `tdd-guide` |
+| TS/JS build errors | `/build-fix` → `build-error-resolver` |
+| Rust build, clippy, test failures | `/build-fix` → `rust-build-resolver` |
+| Pre-PR quality check | `/code-review` → `code-reviewer` |
+| Auth, input handling, secrets, payments, LLM data | `security-reviewer` |
+| Critical user flows | `/e2e` → `e2e-runner` |
+| Dead code cleanup | `/refactor-clean` → `refactor-cleaner` |
+| Docs and codemaps | `doc-updater` |
+| CI, Docker, env config, deployments | `devops` |
+| Versioning, changelog, tags, releases | `/release` → `release-manager` |
+
+### Language support
+
+The agents detect the stack from the project's manifests. TypeScript/JavaScript is covered by the original skills. Rust is covered by the `rust-patterns` skill and the `rust-build-resolver` agent: `/verify`, `/build-fix`, and `verification-loop` switch to cargo commands when a `Cargo.toml` is present. Project conventions in your `CLAUDE.md` and CI config always take precedence over the defaults in this collection.
+
+---
+
 ## Key Concepts
 
 ### Agents
