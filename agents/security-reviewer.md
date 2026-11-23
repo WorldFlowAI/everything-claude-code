@@ -123,60 +123,29 @@ For each category, check:
     - Are alerts configured?
 ```
 
-### 3. Example Project-Specific Security Checks
+### 3. Project-Specific Security Checks
 
-**CRITICAL - Platform Handles Real Money:**
+Read `CLAUDE.md` and any project skill for domain-specific security requirements, then add checks for the risk areas this codebase actually has:
 
 ```
-Financial Security:
-- [ ] All market trades are atomic transactions
-- [ ] Balance checks before any withdrawal/trade
-- [ ] Rate limiting on all financial endpoints
-- [ ] Audit logging for all money movements
-- [ ] Double-entry bookkeeping validation
-- [ ] Transaction signatures verified
-- [ ] No floating-point arithmetic for money
+If it handles money or credits:
+- [ ] Balance/limit checks and the debit happen in one atomic transaction
+- [ ] Integer/decimal types for amounts, never floating point
+- [ ] Idempotency keys on payment and transfer endpoints
+- [ ] Audit log for every money movement
 
-Solana/Blockchain Security:
-- [ ] Wallet signatures properly validated
-- [ ] Transaction instructions verified before sending
-- [ ] Private keys never logged or stored
-- [ ] RPC endpoints rate limited
-- [ ] Slippage protection on all trades
-- [ ] MEV protection considerations
-- [ ] Malicious instruction detection
+If it calls LLMs or processes user content with AI:
+- [ ] Prompt injection: untrusted input never reaches tool calls or system prompts unescaped
+- [ ] PII/secrets are not sent to model providers unless required and documented
+- [ ] Model output is validated (schema) before it is executed, rendered as HTML, or stored
 
-Authentication Security:
-- [ ] Privy authentication properly implemented
-- [ ] JWT tokens validated on every request
-- [ ] Session management secure
-- [ ] No authentication bypass paths
-- [ ] Wallet signature verification
-- [ ] Rate limiting on auth endpoints
+If it has multi-tenant data:
+- [ ] Every query is scoped by tenant/user (or enforced by row-level security)
+- [ ] IDs in URLs are authorization-checked, not just authentication-checked
 
-Database Security (Supabase):
-- [ ] Row Level Security (RLS) enabled on all tables
-- [ ] No direct database access from client
-- [ ] Parameterized queries only
-- [ ] No PII in logs
-- [ ] Backup encryption enabled
-- [ ] Database credentials rotated regularly
-
-API Security:
-- [ ] All endpoints require authentication (except public)
-- [ ] Input validation on all parameters
-- [ ] Rate limiting per user/IP
-- [ ] CORS properly configured
-- [ ] No sensitive data in URLs
-- [ ] Proper HTTP methods (GET safe, POST/PUT/DELETE idempotent)
-
-Search Security (Redis + OpenAI):
-- [ ] Redis connection uses TLS
-- [ ] OpenAI API key server-side only
-- [ ] Search queries sanitized
-- [ ] No PII sent to OpenAI
-- [ ] Rate limiting on search endpoints
-- [ ] Redis AUTH enabled
+If it uses signed messages, webhooks, or tokens:
+- [ ] Signatures verified with constant-time comparison before any processing
+- [ ] Replay protection (timestamps/nonces)
 ```
 
 ## Vulnerability Patterns to Detect

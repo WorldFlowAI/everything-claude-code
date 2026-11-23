@@ -189,28 +189,20 @@ components/Button.tsx (with variant prop)
 }
 ```
 
-## Example Project-Specific Rules
+## Project-Specific Protected Code
 
-**CRITICAL - NEVER REMOVE:**
-- Privy authentication code
-- Solana wallet integration
-- Supabase database clients
-- Redis/OpenAI semantic search
-- Market trading logic
-- Real-time subscription handlers
+Before deleting anything, determine what this project considers critical:
 
-**SAFE TO REMOVE:**
-- Old unused components in components/ folder
-- Deprecated utility functions
-- Test files for deleted features
-- Commented-out code blocks
-- Unused TypeScript types/interfaces
+1. Read `CLAUDE.md` and any project skill for a "never remove" / protected list.
+2. Treat as protected by default, even if a tool reports it unused:
+   - Authentication, authorization, and session handling
+   - Payment, billing, and anything touching money
+   - Database clients, migrations, and schema files
+   - Code loaded dynamically (plugin registries, string-based imports, reflection, framework conventions such as route files or `pages/`)
+   - Public API surface of a library or workspace crate consumed elsewhere
+3. If unsure whether something is used, do NOT delete it. List it under "Needs human review" in the deletion log.
 
-**ALWAYS VERIFY:**
-- Semantic search functionality (lib/redis.js, lib/openai.js)
-- Market data fetching (api/markets/*, api/market/[slug]/)
-- Authentication flows (HeaderWallet.tsx, UserMenu.tsx)
-- Trading functionality (Meteora SDK integration)
+**SAFE TO REMOVE** (after grep confirms zero references): commented-out code, unused private helpers and types, test files for deleted features, dependencies with no imports.
 
 ## Pull Request Template
 

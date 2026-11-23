@@ -286,53 +286,16 @@ const Component = ({ children }: Props) => {
 }
 ```
 
-### Supabase Client Types
+### Third-Party SDK Types
 ```typescript
-// ❌ ERROR: Type 'any' not assignable
-const { data } = await supabase
-  .from('markets')
-  .select('*')
+// ❌ ERROR: Type 'any' / property does not exist on SDK client result
+const { data } = await db.from('items').select('*')
 
-// ✅ FIX: Add type annotation
-interface Market {
-  id: string
-  name: string
-  slug: string
-  // ... other fields
-}
-
-const { data } = await supabase
-  .from('markets')
-  .select('*') as { data: Market[] | null, error: any }
+// ✅ FIX: Type the result at the boundary, using the SDK's generics or generated types
+interface Item { id: string; name: string }
+const { data } = await db.from('items').select('*').returns<Item[]>()
 ```
-
-### Redis Stack Types
-```typescript
-// ❌ ERROR: Property 'ft' does not exist on type 'RedisClientType'
-const results = await client.ft.search('idx:markets', query)
-
-// ✅ FIX: Use proper Redis Stack types
-import { createClient } from 'redis'
-
-const client = createClient({
-  url: process.env.REDIS_URL
-})
-
-await client.connect()
-
-// Type is inferred correctly now
-const results = await client.ft.search('idx:markets', query)
-```
-
-### Solana Web3.js Types
-```typescript
-// ❌ ERROR: Argument of type 'string' not assignable to 'PublicKey'
-const publicKey = wallet.address
-
-// ✅ FIX: Use PublicKey constructor
-import { PublicKey } from '@solana/web3.js'
-const publicKey = new PublicKey(wallet.address)
-```
+Prefer the SDK's generated types (e.g. `supabase gen types`, Prisma client, OpenAPI codegen) over hand-written interfaces when available. Check that the installed SDK version matches the docs you're following.
 
 ## Minimal Diff Strategy
 

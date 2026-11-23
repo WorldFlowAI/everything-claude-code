@@ -1,3 +1,8 @@
+---
+name: eval-harness
+description: Use when defining or running evals for AI/LLM features or Claude Code workflows: capability and regression evals, code/model/human graders, and pass@k reliability metrics (eval-driven development).
+---
+
 # Eval Harness Skill
 
 A formal evaluation framework for Claude Code sessions, implementing eval-driven development (EDD) principles.

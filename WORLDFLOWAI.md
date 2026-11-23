@@ -10,7 +10,7 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 | **Commands** | /build-fix, /checkpoint, /code-review, /learn, /plan, /refactor-clean, /tdd, /verify |
 | **Skills** | backend-patterns, coding-standards, continuous-learning, eval-harness, security-review, verification-loop |
 | **Rules** | coding-style, git-workflow, security, testing |
-| **Hooks** | memory-persistence, strategic-compact, continuous-learning-activator |
+| **Hooks** | memory-persistence, strategic-compact, continuous-learning (Stop hook: `evaluate-session.js`) |
 
 ## Quick Start Workflows
 

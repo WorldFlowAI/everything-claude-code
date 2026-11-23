@@ -1,3 +1,8 @@
+---
+name: verification-loop
+description: Use after completing a feature or significant change, after refactoring, or before opening a PR. Runs build, type check, lint, tests, security scan and diff review as quality gates and reports PASS/FAIL per phase.
+---
+
 # Verification Loop Skill
 
 A comprehensive verification system for Claude Code sessions.

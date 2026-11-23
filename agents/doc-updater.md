@@ -127,102 +127,14 @@ Files to update:
 - Validate code snippets compile
 ```
 
-## Example Project-Specific Codemaps
+## Codemap Content Rules
 
-### Frontend Codemap (docs/CODEMAPS/frontend.md)
-```markdown
-# Frontend Architecture
+Codemaps describe THIS repository only. Never copy example content from elsewhere.
 
-**Last Updated:** YYYY-MM-DD
-**Framework:** Next.js 15.1.4 (App Router)
-**Entry Point:** website/src/app/layout.tsx
-
-## Structure
-
-website/src/
-├── app/                # Next.js App Router
-│   ├── api/           # API routes
-│   ├── markets/       # Markets pages
-│   ├── bot/           # Bot interaction
-│   └── creator-dashboard/
-├── components/        # React components
-├── hooks/             # Custom hooks
-└── lib/               # Utilities
-
-## Key Components
-
-| Component | Purpose | Location |
-|-----------|---------|----------|
-| HeaderWallet | Wallet connection | components/HeaderWallet.tsx |
-| MarketsClient | Markets listing | app/markets/MarketsClient.js |
-| SemanticSearchBar | Search UI | components/SemanticSearchBar.js |
-
-## Data Flow
-
-User → Markets Page → API Route → Supabase → Redis (optional) → Response
-
-## External Dependencies
-
-- Next.js 15.1.4 - Framework
-- React 19.0.0 - UI library
-- Privy - Authentication
-- Tailwind CSS 3.4.1 - Styling
-```
-
-### Backend Codemap (docs/CODEMAPS/backend.md)
-```markdown
-# Backend Architecture
-
-**Last Updated:** YYYY-MM-DD
-**Runtime:** Next.js API Routes
-**Entry Point:** website/src/app/api/
-
-## API Routes
-
-| Route | Method | Purpose |
-|-------|--------|---------|
-| /api/markets | GET | List all markets |
-| /api/markets/search | GET | Semantic search |
-| /api/market/[slug] | GET | Single market |
-| /api/market-price | GET | Real-time pricing |
-
-## Data Flow
-
-API Route → Supabase Query → Redis (cache) → Response
-
-## External Services
-
-- Supabase - PostgreSQL database
-- Redis Stack - Vector search
-- OpenAI - Embeddings
-```
-
-### Integrations Codemap (docs/CODEMAPS/integrations.md)
-```markdown
-# External Integrations
-
-**Last Updated:** YYYY-MM-DD
-
-## Authentication (Privy)
-- Wallet connection (Solana, Ethereum)
-- Email authentication
-- Session management
-
-## Database (Supabase)
-- PostgreSQL tables
-- Real-time subscriptions
-- Row Level Security
-
-## Search (Redis + OpenAI)
-- Vector embeddings (text-embedding-ada-002)
-- Semantic search (KNN)
-- Fallback to substring search
-
-## Blockchain (Solana)
-- Wallet integration
-- Transaction handling
-- Meteora CP-AMM SDK
-```
+- Derive every entry from the code: list only directories, modules, routes, and services you actually found.
+- Include versions only when read from a manifest or lockfile.
+- Each codemap (`frontend.md`, `backend.md`, `integrations.md`, or per-crate/per-package maps for workspaces) lists: entry points, key modules with `path` references, data flow, and external services discovered from config/env usage.
+- If `CLAUDE.md` or a project skill names areas to document, cover those first.
 
 ## README Update Template
 
