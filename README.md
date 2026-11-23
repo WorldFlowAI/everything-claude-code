@@ -1,6 +1,6 @@
 # LEGENDS
 
-[![Stars](https://img.shields.io/github/stars/TahaGPT/teamLegends?style=flat)](https://github.com/TahaGPT/teamLegends/stargazers)
+[![Stars](https://img.shields.io/github/stars/TahaGPT/LEGENDS?style=flat)](https://github.com/TahaGPT/LEGENDS/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -88,7 +88,7 @@ Or use the `/setup-pm` command in Claude Code.
 This repo is a **Claude Code plugin** - install it directly or copy components manually.
 
 ```
-teamLegends/
+LEGENDS/
 |-- .claude-plugin/   # Plugin and marketplace manifests
 |   |-- plugin.json         # Plugin metadata and component paths
 |   |-- marketplace.json    # Marketplace catalog for /plugin marketplace add
@@ -192,7 +192,7 @@ The easiest way to use this repo - install as a Claude Code plugin:
 
 ```bash
 # Add this repo as a marketplace
-/plugin marketplace add TahaGPT/teamLegends
+/plugin marketplace add TahaGPT/LEGENDS
 
 # Install the plugin
 /plugin install legends@legends
@@ -206,7 +206,7 @@ Or add directly to your `~/.claude/settings.json`:
     "legends": {
       "source": {
         "source": "github",
-        "repo": "TahaGPT/teamLegends"
+        "repo": "TahaGPT/LEGENDS"
       }
     }
   },
@@ -226,19 +226,19 @@ If you prefer manual control over what's installed:
 
 ```bash
 # Clone the repo
-git clone https://github.com/TahaGPT/teamLegends.git
+git clone https://github.com/TahaGPT/LEGENDS.git
 
 # Copy agents to your Claude config
-cp teamLegends/agents/*.md ~/.claude/agents/
+cp LEGENDS/agents/*.md ~/.claude/agents/
 
 # Copy rules
-cp teamLegends/rules/*.md ~/.claude/rules/
+cp LEGENDS/rules/*.md ~/.claude/rules/
 
 # Copy commands
-cp teamLegends/commands/*.md ~/.claude/commands/
+cp LEGENDS/commands/*.md ~/.claude/commands/
 
 # Copy skills
-cp -r teamLegends/skills/* ~/.claude/skills/
+cp -r LEGENDS/skills/* ~/.claude/skills/
 ```
 
 #### Add hooks to settings.json
@@ -446,13 +446,13 @@ These configs are defaults. You should:
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=TahaGPT/teamLegends&type=Date)](https://star-history.com/#TahaGPT/teamLegends&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=TahaGPT/LEGENDS&type=Date)](https://star-history.com/#TahaGPT/LEGENDS&Date)
 
 ---
 
 ## Links
 
-- **Repository:** [TahaGPT/teamLegends](https://github.com/TahaGPT/teamLegends)
+- **Repository:** [TahaGPT/LEGENDS](https://github.com/TahaGPT/LEGENDS)
 - **Original project:** [affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)
 - **Shorthand Guide (Start Here):** [The Shorthand Guide to Everything Claude Code](https://x.com/affaanmustafa/status/2012378465664745795)
 - **Longform Guide (Advanced):** [The Longform Guide to Everything Claude Code](https://x.com/affaanmustafa/status/2014040193557471352)
