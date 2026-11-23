@@ -98,6 +98,8 @@ everything-claude-code/
 |   |-- code-reviewer.md     # Quality and security review
 |   |-- security-reviewer.md # Vulnerability analysis
 |   |-- build-error-resolver.md
+|   |-- rust-build-resolver.md
+|   |-- explorer.md
 |   |-- e2e-runner.md        # Playwright E2E testing
 |   |-- refactor-cleaner.md  # Dead code cleanup
 |   |-- doc-updater.md       # Documentation sync
@@ -109,6 +111,7 @@ everything-claude-code/
 |   |-- continuous-learning/        # Auto-extract patterns from sessions (Longform Guide)
 |   |-- strategic-compact/          # Manual compaction suggestions (Longform Guide)
 |   |-- tdd-workflow/               # TDD methodology
+|   |-- rust-patterns/              # Rust idioms, async, testing, security
 |   |-- security-review/            # Security checklist
 |   |-- eval-harness/               # Verification loop evaluation (Longform Guide)
 |   |-- verification-loop/          # Continuous verification (Longform Guide)

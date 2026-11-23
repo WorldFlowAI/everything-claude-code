@@ -6,9 +6,9 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 
 | Type | Items |
 |------|-------|
-| **Agents** | architect, build-error-resolver, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
+| **Agents** | architect, build-error-resolver, rust-build-resolver, explorer, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
 | **Commands** | /build-fix, /checkpoint, /code-review, /learn, /plan, /refactor-clean, /tdd, /verify |
-| **Skills** | backend-patterns, coding-standards, continuous-learning, eval-harness, security-review, verification-loop |
+| **Skills** | rust-patterns, backend-patterns, coding-standards, continuous-learning, eval-harness, security-review, verification-loop |
 | **Rules** | coding-style, git-workflow, security, testing |
 | **Hooks** | memory-persistence, strategic-compact, continuous-learning (Stop hook: `evaluate-session.js`) |
 
@@ -49,7 +49,8 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 ### Synapse (Rust Workspace)
 
 **Best agents for synapse:**
-- `build-error-resolver` - Rust compile errors can be cryptic
+- `rust-build-resolver` - cargo build/clippy/test failures, borrow checker, Send/Sync, workspace features
+- `rust-patterns` skill - Rust conventions for planning, TDD, and reviews
 - `architect` - Multi-crate workspace decisions
 - `security-reviewer` - LLM data handling requires scrutiny
 
@@ -135,7 +136,7 @@ After ~50 tool calls, you'll see a suggestion to run `/compact`. This helps main
 |-----------|---------------|
 | Planning new feature | `/plan` → planner agent |
 | Designing system architecture | architect agent |
-| Fixing Rust compile errors | `/build-fix` → build-error-resolver |
+| Fixing Rust compile errors | `/build-fix` → rust-build-resolver |
 | Pre-PR quality check | `/code-review` → code-reviewer |
 | Security-sensitive changes | security-reviewer agent |
 | Writing tests first | `/tdd` → tdd-guide agent |

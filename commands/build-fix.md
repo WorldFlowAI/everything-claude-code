@@ -1,6 +1,8 @@
 # Build and Fix
 
-Incrementally fix TypeScript and build errors:
+Incrementally fix build errors.
+
+**Rust projects (a `Cargo.toml` exists):** delegate to the `rust-build-resolver` agent. It runs `cargo check --workspace --all-targets`, fixes errors in dependency order (lowest crate first), then verifies with clippy (`-D warnings`) and tests. The steps below describe the TypeScript/JS flow.
 
 1. Run build: npm run build or pnpm build
 

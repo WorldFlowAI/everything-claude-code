@@ -4,6 +4,13 @@ Run comprehensive verification on current codebase state.
 
 ## Instructions
 
+**Rust projects (a `Cargo.toml` exists):** use the cargo commands from the `rust-patterns` skill for each step:
+build/types = `cargo check --workspace --all-targets --all-features`,
+lint = `cargo fmt --all -- --check` + `cargo clippy --workspace --all-targets --all-features -- -D warnings`,
+tests = `cargo test --workspace` (or `cargo nextest run`) + `cargo test --doc`, coverage = `cargo llvm-cov --summary-only`,
+security = `cargo audit` (+ `cargo deny check` if `deny.toml` exists),
+debug-statement audit = `println!`/`dbg!`/`todo!` in non-test code instead of console.log.
+
 Execute verification in this exact order:
 
 1. **Build Check**
