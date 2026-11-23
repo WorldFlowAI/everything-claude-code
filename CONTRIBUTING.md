@@ -60,8 +60,8 @@ New or improved MCP server configs:
 ### 1. Fork the repo
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/LEGENDS.git
-cd LEGENDS
+git clone https://github.com/YOUR_USERNAME/legends.git
+cd legends
 ```
 
 ### 2. Create a branch
@@ -184,7 +184,7 @@ Then open a PR with:
 
 ## Questions?
 
-Open an issue at [TahaGPT/LEGENDS](https://github.com/TahaGPT/LEGENDS/issues)
+Open an issue at [TahaGPT/legends](https://github.com/TahaGPT/legends/issues)
 
 ---
 
