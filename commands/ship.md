@@ -1,5 +1,5 @@
 ---
-description: End-to-end feature delivery. Spec → explore → plan (user approves) → implement test-first → parallel code + security review → fix loop → E2E → verify → docs → commit/PR (user approves). Use for any feature or bug fix you want taken from idea to a reviewable PR.
+description: End-to-end feature delivery. Spec → explore → plan (user approves) → implement test-first → parallel code + security review → fix loop → E2E → verify → docs + CI/infra → commit/PR (user approves). Use for any feature or bug fix you want taken from idea to a reviewable PR.
 argument-hint: "<feature or bug description> [--no-e2e] [--no-pr] [--resume <slug>]"
 ---
 
@@ -86,8 +86,11 @@ Run the full verification with the project's CI flags: build, types, lint, all t
 
 If anything fails, go back to Stage 4/6. Don't report success on a red build.
 
-### Stage 9: Docs → `doc-updater` (conditional)
-Run only if a public API, CLI, config option, environment variable, or setup step changed. Update the README, docs, and codemaps that are affected. Skip internal-only changes.
+### Stage 9: Docs + Infra → `doc-updater` and `devops` (conditional, in parallel)
+- **`doc-updater`**: only if a public API, CLI, config option, environment variable, or setup step changed. Update the README, docs, and codemaps that are affected. Skip internal-only changes.
+- **`devops`**: only if the change adds or alters environment variables, services, ports, system dependencies, build steps, Dockerfiles, CI workflows, or deployment config. It updates `.env.example`, the Dockerfile, CI, and deploy config, and returns the list of secrets the user must set. `devops` never deploys or applies infrastructure inside `/ship`; any such action goes into the final report as a follow-up for the user.
+
+If both apply, launch them in a single message. If `devops` changed CI or build files, re-run the affected parts of Stage 8 before delivering.
 
 ### Stage 10: Deliver
 1. Stage only the files belonging to this change and write a conventional commit message (`feat:` / `fix:` ...) whose body summarizes the change and references the acceptance criteria. Follow the repository's commit conventions and any attribution rules.
@@ -109,7 +112,7 @@ Acceptance criteria
 
 Pipeline
   spec ✓  explore ✓  plan ✓ (approved)  implement ✓
-  review: code ✓ security ✓ (fix loops: 1)  e2e ✓|skipped  verify ✓  docs ✓|skipped
+  review: code ✓ security ✓ (fix loops: 1)  e2e ✓|skipped  verify ✓  docs ✓|skipped  infra ✓|skipped
 
 Verification
   build OK | types OK | lint OK | tests 214/214 | security OK
@@ -121,6 +124,10 @@ Deferred (not blocking)
 
 Out-of-scope observations
   - ...
+
+Follow-ups for you
+  - Set secrets: FOO_API_KEY (staging, prod)   [from devops]
+  - Deploy / infra actions needing approval     [from devops]
 
 Status: READY FOR PR | PR OPENED <url> | STOPPED AT <stage> - <reason>
 ```
@@ -139,3 +146,5 @@ Status: READY FOR PR | PR OPENED <url> | STOPPED AT <stage> - <reason>
 - Only want a plan: `/plan`
 - Only want a review: `/code-review`
 - Custom agent sequence: `/orchestrate custom ...`
+- Package merged features into a version: `/release`
+- CI, Docker, or deployment setup on its own: ask for the `devops` agent

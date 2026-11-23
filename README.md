@@ -102,6 +102,8 @@ everything-claude-code/
 |   |-- explorer.md
 |   |-- e2e-runner.md        # Playwright E2E testing
 |   |-- implementer.md       # Executes approved plans test-first
+|   |-- devops.md            # CI/CD, Docker, env config, deployments
+|   |-- release-manager.md   # Versioning, changelog, tags, releases
 |   |-- refactor-cleaner.md  # Dead code cleanup
 |   |-- doc-updater.md       # Documentation sync
 |
@@ -124,6 +126,7 @@ everything-claude-code/
 |   |-- code-review.md      # /code-review - Quality review
 |   |-- build-fix.md        # /build-fix - Fix build errors
 |   |-- ship.md             # /ship - Idea to reviewed PR, end to end
+|   |-- release.md          # /release - Cut a versioned release
 |   |-- refactor-clean.md   # /refactor-clean - Dead code removal
 |   |-- learn.md            # /learn - Extract patterns mid-session (Longform Guide)
 |   |-- checkpoint.md       # /checkpoint - Save verification state (Longform Guide)

@@ -6,8 +6,8 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 
 | Type | Items |
 |------|-------|
-| **Agents** | architect, build-error-resolver, rust-build-resolver, explorer, implementer, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
-| **Commands** | /ship, /build-fix, /checkpoint, /code-review, /learn, /plan, /refactor-clean, /tdd, /verify |
+| **Agents** | architect, build-error-resolver, rust-build-resolver, explorer, implementer, devops, release-manager, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
+| **Commands** | /ship, /release, /build-fix, /checkpoint, /code-review, /learn, /plan, /refactor-clean, /tdd, /verify |
 | **Skills** | rust-patterns, backend-patterns, coding-standards, continuous-learning, eval-harness, security-review, verification-loop |
 | **Rules** | coding-style, git-workflow, security, testing |
 | **Hooks** | memory-persistence, strategic-compact, continuous-learning (Stop hook: `evaluate-session.js`) |
@@ -18,6 +18,13 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 
 ```
 /ship "<feature description>"   # spec → explore → plan (you approve) → implement → review → verify → PR (you approve)
+```
+
+### Cutting a Release
+
+```
+/release --dry-run   # preview version + changelog
+/release             # bump, changelog, verify, tag locally; you approve the push/publish
 ```
 
 ### Starting a New Feature (step by step)
