@@ -102,6 +102,8 @@ everything-claude-code/
 |   |-- explorer.md
 |   |-- e2e-runner.md        # Playwright E2E testing
 |   |-- implementer.md       # Executes approved plans test-first
+|   |-- database-architect.md # Schema design, safe migrations, indexing
+|   |-- api-designer.md      # Contract-first API and interface design
 |   |-- devops.md            # CI/CD, Docker, env config, deployments
 |   |-- release-manager.md   # Versioning, changelog, tags, releases
 |   |-- refactor-cleaner.md  # Dead code cleanup

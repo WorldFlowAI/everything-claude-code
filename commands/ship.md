@@ -54,15 +54,28 @@ If an open question changes what gets built (e.g. "per-user or per-IP?"), ask th
 ### Stage 2: Explore → `explorer` agent
 Send the spec. Receive `HANDOFF: explorer -> planner` (relevant files, conventions, current behavior, root cause for bugs). For tiny changes to a single, well-understood file, you may skip this stage and say so.
 
-### Stage 3: Plan → `planner` agent (+ `architect` when needed)
-Send the spec and the explorer handoff. Also invoke `architect`, before the planner, if the change adds a new service, datastore, public API, crate/package, or cross-cutting pattern.
+### Stage 3: Design + Plan → specialists, then `planner`
 
-The plan must map every acceptance criterion to at least one step and one test.
+**3a. Design specialists (conditional, in parallel).** Using the spec and explorer handoff, launch every specialist that applies **in a single message**:
 
-**GATE 1: user approval.** Show the spec summary and the plan. Wait for the user to approve or change it. Do not proceed without approval. If the user requests changes, re-run the planner with their feedback.
+| Specialist | Invoke when the change... |
+|------------|---------------------------|
+| `architect` | adds a new service, datastore, crate/package, or cross-cutting pattern |
+| `database-architect` | adds or alters tables, columns, indexes, constraints, relationships, or data access patterns |
+| `api-designer` | adds or changes an endpoint, RPC, GraphQL field, webhook/event payload, or public library interface |
+
+Skip this sub-stage if none apply. If `architect` changes the overall design in a way that affects the others' work, re-run the affected specialist with the architect's handoff.
+
+**3b. Plan → `planner`.** Send the spec, the explorer handoff, and all specialist handoffs. The plan must:
+- map every acceptance criterion to at least one step and one test
+- follow the `database-architect` migration plan, in its release order, if present
+- turn the `api-designer` "Contract Tests for the Implementer" into test steps, if present
+- carry forward any breaking changes, flagged for `release-manager`
+
+**GATE 1: user approval.** Show the spec summary, the key design decisions (schema changes, API contract, breaking changes), and the plan. Wait for the user to approve or change it. Do not proceed without approval. If the user requests changes, re-run the planner with their feedback.
 
 ### Stage 4: Implement → `implementer` agent
-Send the approved plan, spec, and explorer handoff. Receive `HANDOFF: implementer -> code-reviewer, security-reviewer`.
+Send the approved plan, spec, explorer handoff, and specialist handoffs (schema/migration plan, API contract). Receive `HANDOFF: implementer -> code-reviewer, security-reviewer`.
 
 If the implementer reports **BLOCKED** on a design issue, return to Stage 3 with the blocker (re-plan, re-approve). Don't push the implementer to work around it.
 
@@ -111,7 +124,7 @@ Acceptance criteria
   [x] ...
 
 Pipeline
-  spec ✓  explore ✓  plan ✓ (approved)  implement ✓
+  spec ✓  explore ✓  design: arch –|✓ db –|✓ api –|✓  plan ✓ (approved)  implement ✓
   review: code ✓ security ✓ (fix loops: 1)  e2e ✓|skipped  verify ✓  docs ✓|skipped  infra ✓|skipped
 
 Verification

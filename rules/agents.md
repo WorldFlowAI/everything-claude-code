@@ -15,6 +15,8 @@ Located in `~/.claude/agents/`:
 | rust-build-resolver | Fix cargo build/clippy/test failures | When a Rust build fails |
 | explorer | Read-only codebase investigation | Before planning, start of bug fixes |
 | implementer | Execute an approved plan test-first | After plan approval (/ship, /orchestrate feature) |
+| database-architect | Schema design, safe migrations, indexes | Any schema or data-access change |
+| api-designer | Contract-first API/RPC/event/SDK design | New or changed endpoints and public interfaces |
 | devops | CI/CD, Docker, env config, deploy manifests | Config/infra changes, CI failures, pipeline setup |
 | release-manager | Semver bump, changelog, tag, GitHub release | Cutting a release (/release) |
 | e2e-runner | E2E testing | Critical user flows |

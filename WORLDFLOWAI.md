@@ -6,7 +6,7 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 
 | Type | Items |
 |------|-------|
-| **Agents** | architect, build-error-resolver, rust-build-resolver, explorer, implementer, devops, release-manager, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
+| **Agents** | architect, build-error-resolver, rust-build-resolver, explorer, implementer, database-architect, api-designer, devops, release-manager, code-reviewer, planner, refactor-cleaner, security-reviewer, tdd-guide |
 | **Commands** | /ship, /release, /build-fix, /checkpoint, /code-review, /learn, /plan, /refactor-clean, /tdd, /verify |
 | **Skills** | rust-patterns, backend-patterns, coding-standards, continuous-learning, eval-harness, security-review, verification-loop |
 | **Rules** | coding-style, git-workflow, security, testing |
@@ -65,6 +65,8 @@ Quick reference for using the everything-claude-code toolkit with synapse and ar
 - `rust-build-resolver` - cargo build/clippy/test failures, borrow checker, Send/Sync, workspace features
 - `rust-patterns` skill - Rust conventions for planning, TDD, and reviews
 - `architect` - Multi-crate workspace decisions
+- `api-designer` - gRPC/HTTP contracts between crates and services; `buf breaking` / `cargo semver-checks` for public interfaces
+- `database-architect` - sqlx/diesel migrations, indexing, PII retention for stored prompts
 - `security-reviewer` - LLM data handling requires scrutiny
 
 **Typical workflow:**
